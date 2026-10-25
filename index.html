@@ -165,8 +165,27 @@
   .job h3 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 34px; line-height: 1.1; }
   .job .co { color: var(--muted); margin: 6px 0 16px; }
   .job ul { list-style: none; }
-  .job li { padding-left: 22px; position: relative; margin-bottom: 8px; }
-  .job li::before { content: "\2192"; position: absolute; left: 0; color: var(--muted); }
+  .k { color: var(--muted); margin-bottom: 14px; }
+  .channels { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--fg); }
+  .ch-card { padding: 20px; transition: background .5s var(--ease), color .5s var(--ease); }
+  .ch-card + .ch-card { border-left: 1px solid var(--fg); }
+  .ch-card:hover { background: var(--fg); color: var(--bg); }
+  .ch-card:hover .k, .ch-card:hover dd { color: #a0a0a0; }
+  .ch-card dl { display: grid; gap: 14px; }
+  .ch-card dt { font-family: "Instrument Serif", serif; font-size: 32px; line-height: 1; }
+  .ch-card dd { color: var(--muted); font-size: 13px; margin-top: 4px; transition: color .5s var(--ease); }
+  .top { list-style: none; border-top: 1px solid var(--line); }
+  .top li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); transition: padding .5s var(--ease); }
+  .top li:hover { padding-left: 10px; }
+  .top b { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 22px; line-height: 1; }
+
+  /* hero stats */
+  .stats { margin-top: 36px; display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 0; border-top: 1px solid var(--fg); border-bottom: 1px solid var(--fg); opacity: 0; animation: rise 1s var(--ease) .65s forwards; }
+  .stat { padding: 16px 32px 16px 0; transition: transform .5s var(--ease); }
+  .stat + .stat { padding-left: 32px; border-left: 1px solid var(--line); }
+  .stat:hover { transform: translateY(-3px); }
+  .stat b { display: block; font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(30px, 4vw, 44px); line-height: 1; font-variant-numeric: tabular-nums; }
+  .stat span { color: var(--muted); display: block; margin-top: 8px; }
 
   /* contact */
   .contact { padding: 120px 0 60px; }
@@ -207,6 +226,13 @@
     .post .tag { grid-column: 1 / -1; }
     .post .body article { padding-left: 0; }
     .job { grid-template-columns: 1fr; gap: 10px; }
+    .channels { grid-template-columns: 1fr; }
+    .ch-card + .ch-card { border-left: 0; border-top: 1px solid var(--fg); }
+    .ch-card dl { grid-template-columns: 1fr 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat, .stat + .stat { padding: 14px 0; border-left: 0; }
+    .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
     .marquee span { font-size: 26px; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -239,6 +265,13 @@
     <span class="ghost" id="ghost" aria-hidden="true"></span>
     <span class="amp">&amp;</span>
     <span class="gtm" id="gtm" aria-hidden="true">GTM_ENGINEER<span class="tick">v1.0</span></span>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b data-to="279" data-suffix="K+">0</b><span class="mono">Impressions</span></div>
+    <div class="stat"><b data-to="11.4" data-dec="1" data-suffix="K+">0</b><span class="mono">Engagements</span></div>
+    <div class="stat"><b data-to="4.4" data-dec="1" data-suffix="%">0</b><span class="mono">Peak eng. rate</span></div>
+    <div class="stat"><b data-to="3.9" data-dec="1" data-suffix="K">0</b><span class="mono">Followers</span></div>
   </div>
 
   <p class="sub">I write words that sound like <b>you</b>, and build the systems that put them in front of <b>the right people</b>. Engineering student by day, writer always.</p>
@@ -351,10 +384,40 @@
     <div>
       <h3>GTM Intern &amp; Ghostwriter</h3>
       <p class="mono co">Stealth Startup</p>
-      <ul>
-        <li>Ghostwrite founder-led content for LinkedIn and X.</li>
-        <li>Build go-to-market workflows that turn posts into pipeline.</li>
-        <li>Test hooks, formats and timing to grow reach and engagement.</li>
+      <div class="channels">
+        <div class="ch-card">
+          <p class="mono k">X &middot; Account 01</p>
+          <dl>
+            <div><dt>233.6K</dt><dd>Impressions</dd></div>
+            <div><dt>10.4K</dt><dd>Engagements</dd></div>
+            <div><dt>4.4%</dt><dd>Engagement rate</dd></div>
+            <div><dt>3.2K</dt><dd>Followers</dd></div>
+          </dl>
+        </div>
+        <div class="ch-card">
+          <p class="mono k">X &middot; Account 02</p>
+          <dl>
+            <div><dt>41.2K</dt><dd>Impressions</dd></div>
+            <div><dt>907</dt><dd>Engagements</dd></div>
+            <div><dt>2.1%</dt><dd>Engagement rate</dd></div>
+            <div><dt>566</dt><dd>Followers</dd></div>
+          </dl>
+        </div>
+        <div class="ch-card">
+          <p class="mono k">LinkedIn &middot; Company page</p>
+          <dl>
+            <div><dt>4,431</dt><dd>Impressions</dd></div>
+            <div><dt>1,051</dt><dd>Page views (421 unique)</dd></div>
+            <div><dt>90</dt><dd>Reactions &amp; comments</dd></div>
+            <div><dt>135</dt><dd>Followers (+45)</dd></div>
+          </dl>
+        </div>
+      </div>
+      <p class="mono k" style="margin-top:28px">Top posts &middot; impressions</p>
+      <ul class="top">
+        <li><span>GM post on X</span><b>8K</b></li>
+        <li><span>Bug story thread on X</span><b>1.4K</b></li>
+        <li><span>LinkedIn post on neobanks</span><b>225</b></li>
       </ul>
     </div>
   </div>
@@ -428,6 +491,18 @@
     copyBtn.classList.add('done');
     clearTimeout(copyBtn.timer);
     copyBtn.timer = setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('done'); }, 1800);
+  });
+
+  // hero stats count up from zero
+  document.querySelectorAll('.stat b').forEach(el => {
+    const to = +el.dataset.to, dec = +(el.dataset.dec || 0), suffix = el.dataset.suffix || '';
+    const start = performance.now() + 700, dur = 1600;
+    const tickNum = now => {
+      const t = Math.min(Math.max((now - start) / dur, 0), 1);
+      el.textContent = (to * (1 - Math.pow(1 - t, 4))).toFixed(dec) + suffix;
+      if (t < 1) requestAnimationFrame(tickNum);
+    };
+    requestAnimationFrame(tickNum);
   });
 
   // reveal on scroll
