@@ -175,17 +175,9 @@
   .job ul { list-style: none; }
   .k { color: var(--muted); margin-bottom: 14px; }
   .summary { font-size: 17px; max-width: 640px; margin-bottom: 18px; }
-  .wins { list-style: none; margin-bottom: 32px; max-width: 640px; }
+  .wins { list-style: none; max-width: 640px; }
   .wins li { padding-left: 22px; position: relative; margin-bottom: 8px; }
   .wins li::before { content: "\2192"; position: absolute; left: 0; color: var(--muted); }
-  .channels { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--fg); }
-  .ch-card { padding: 20px; transition: background .5s var(--ease), color .5s var(--ease); }
-  .ch-card + .ch-card { border-left: 1px solid var(--fg); }
-  .ch-card:hover { background: var(--fg); color: var(--bg); }
-  .ch-card:hover .k, .ch-card:hover dd { color: #a0a0a0; }
-  .ch-card dl { display: grid; gap: 14px; }
-  .ch-card dt { font-family: "Instrument Serif", serif; font-size: 32px; line-height: 1; }
-  .ch-card dd { color: var(--muted); font-size: 13px; margin-top: 4px; transition: color .5s var(--ease); }
 
   /* hero stats */
   .stats { margin-top: 36px; display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 0; border-top: 1px solid var(--fg); border-bottom: 1px solid var(--fg); opacity: 0; animation: rise 1s var(--ease) .65s forwards; }
@@ -232,9 +224,6 @@
     .post .tag { grid-column: 1 / -1; }
     .post .body article { padding-left: 0; }
     .job { grid-template-columns: 1fr; gap: 10px; }
-    .channels { grid-template-columns: 1fr; }
-    .ch-card + .ch-card { border-left: 0; border-top: 1px solid var(--fg); }
-    .ch-card dl { grid-template-columns: 1fr 1fr; }
     .stats { grid-template-columns: 1fr 1fr; }
     .stat, .stat + .stat { padding: 14px 0; border-left: 0; }
     .stat:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
@@ -396,36 +385,6 @@
         <li>Held a 4.4% engagement rate on the main X account, which has 3.2K followers.</li>
         <li>Grew the LinkedIn company page by 45 followers, to 135, with 1,051 page views from 421 unique visitors.</li>
       </ul>
-      <p class="mono k">Numbers by channel</p>
-      <div class="channels">
-        <div class="ch-card">
-          <p class="mono k">X &middot; Account 01</p>
-          <dl>
-            <div><dt>233.6K</dt><dd>Impressions</dd></div>
-            <div><dt>10.4K</dt><dd>Engagements</dd></div>
-            <div><dt>4.4%</dt><dd>Engagement rate</dd></div>
-            <div><dt>3.2K</dt><dd>Followers</dd></div>
-          </dl>
-        </div>
-        <div class="ch-card">
-          <p class="mono k">X &middot; Account 02</p>
-          <dl>
-            <div><dt>41.2K</dt><dd>Impressions</dd></div>
-            <div><dt>907</dt><dd>Engagements</dd></div>
-            <div><dt>2.1%</dt><dd>Engagement rate</dd></div>
-            <div><dt>566</dt><dd>Followers</dd></div>
-          </dl>
-        </div>
-        <div class="ch-card">
-          <p class="mono k">LinkedIn &middot; Company page</p>
-          <dl>
-            <div><dt>4,431</dt><dd>Impressions</dd></div>
-            <div><dt>1,051</dt><dd>Page views (421 unique)</dd></div>
-            <div><dt>90</dt><dd>Reactions &amp; comments</dd></div>
-            <div><dt>135</dt><dd>Followers (+45)</dd></div>
-          </dl>
-        </div>
-      </div>
     </div>
   </div>
 </section>
